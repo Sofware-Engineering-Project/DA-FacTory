@@ -1,0 +1,26 @@
+{
+  "name": "da-factory",
+  "version": "1.0.0",
+  "description": "DA-FacTory is a MERN Stack web application which empowers students to connect with DA-IICT's faculty easily. The online faculty directory works as a bridge between students and faculty, encouraging students to work upon different research areas under faculty members.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sofware-Engineering-Project/DA-FacTory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sofware-Engineering-Project/DA-FacTory/issues"
+  },
+  "homepage": "https://github.com/Sofware-Engineering-Project/DA-FacTory#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongodb": "^4.4.1",
+    "mongoose": "^6.2.9"
+  }
+}
