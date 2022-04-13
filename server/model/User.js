@@ -13,6 +13,19 @@ const UserNameSchema = new mongooose.Schema({
         required:true
     }
 })
+const logincredentialSchema = new mongooose.Schema({
+    email: {
+        type: String,
+        lowercase: true,
+        required: [true, 'Email is required'],
+        // maxlength: [128, 'Email can\'t be greater than 128 characters'],
+        // index: true
+      },
+      password: {
+        type: String,
+        required: [true, 'Password is required']
+      }
+})
 
 const UserSchema = new mongooose.Schema({
     user_name:[UserNameSchema],
@@ -34,7 +47,8 @@ const UserSchema = new mongooose.Schema({
     profile_description:{
         type:String,
         required:true
-    }
+    },
+    login_credentail:[logincredentialSchema]
 
 })
 
