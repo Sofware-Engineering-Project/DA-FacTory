@@ -4,14 +4,16 @@ const path = require("path");
 const cors = require("cors");
 const User = require("./models/User");
 const app = express();
+app.use(express.urlencoded({extended: true}));
+app.use(express.json()) // To parse the incoming requests with JSON payloads
 
 dotenv.config({ path: "./config.env" });
 require("./DB/connect");
-app.use(express.json());
-app.use(express.urlencoded());
+
 app.use(cors());
 //app.use(require('./router/auth'));
 app.use(express.static(path.join(__dirname + "../client/src")));
+
 const PORT = process.env.PORT;
 
 app.post("/register", async (req, res) => {
