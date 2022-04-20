@@ -20,7 +20,7 @@ const SignIn = () => {
   };
 
   const login = () => {
-    axios.post("http://localhost:5000/login",User).then(res => alert(res.data.message));
+    axios.post("http://localhost:5000/DA-Factory/login",User).then(res => alert(res.data.message));
   }
 
   return (

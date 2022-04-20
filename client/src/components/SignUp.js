@@ -37,7 +37,7 @@ const SignUp = () => {
       console.log("invalid email");
     }
     else{*/
-      axios.post("http://localhost:5000/register",User).then(res => alert(res.data.message));
+      axios.post("http://localhost:5000/DA-Factory/register",User).then(res => alert(res.data.message));
     //}
   }
   return (

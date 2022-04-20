@@ -22,7 +22,7 @@ const FacultyList = () => {
     useEffect(() => {
       (async () => {
         const profiles = await (
-          await fetch("http://localhost:5000/fetchStudent")
+          await fetch("http://localhost:5000/DA-Factory/fetchStudent")
         ).json();
         setState(profiles);
       })();
