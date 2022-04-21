@@ -33,7 +33,7 @@ const FacultyList = () => {
       })();
       //setState(initialState);
       //fetchProfiles();
-    }, []);
+    }, [state]);
   //console.log(state);
 
   //if (error) return <div>Something went wrong...</div>;

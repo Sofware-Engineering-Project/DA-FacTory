@@ -4,7 +4,7 @@ import "./Student.css";
 
 const Student = ({image, firstname, lastname, email, contact, projectCount}) => {
     return (
-        <div className="container mt-5 d-flex">
+        <div className="container mt-5 mb-5 d-flex">
     <div className="card p-3 w-100">
         <div className="d-flex align-items-center">
             <div className="image"> <img src={image} className="rounded" alt="profile_picture" width="155" /> </div>
