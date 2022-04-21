@@ -59,7 +59,7 @@ const Navbar = () => {
         <div className="d-flex align-items-center">
           <Link to="/auth">
             <button type="button" className="btn btn-primary px-3 me-2">
-              sign-in/sign-up
+              Login | Register
             </button>
           </Link>
           {/*<Link to="/auth" onClick={() => changeState(true)}>
