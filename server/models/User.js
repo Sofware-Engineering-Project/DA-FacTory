@@ -21,14 +21,7 @@ const logincredentialSchema = new mongooose.Schema({
 })
 
 const UserProfileSchema = new mongooose.Schema({
-    email: {
-        type: String,
-        lowercase: true,
-        required: [true, 'Email is required'],
-        unique: true,
-        // maxlength: [128, 'Email can\'t be greater than 128 characters'],
-        // index: true
-    },
+
     firstname:{
         type: String,
         required:true
@@ -59,77 +52,11 @@ const UserProfileSchema = new mongooose.Schema({
     profile_description:{
         type:String,
         required:false
-    }
+    },
+    credentials:[logincredentialSchema]
 })
 
-const Project = new mongooose.Schema({
-    project_details:{
-        type: String,
-        required:false
-    },
-    status: {
-        type: String,
-        required: false
-    }
-})
 
-const StudentProfile = new mongoose.Schema({
-    user: UserProfileSchema,
-    batch: {
-        type:Number,
-        required: false
-    },
-    semester: {
-        type:Number,
-        required: false
-    },
-    cpi: {
-        type:Number,
-        required: false
-    },
-    resume: {
-        type: Object,
-        required: false
-    },
-    projects: {
-        type: [Project],
-        required: false
-    }
-});
-
-const FacultyProfile = new mongoose.Schema({
-    user: UserProfileSchema,
-    yearOfJoining: {
-        type:Number,
-        required: false
-    },
-    areaOfResearch: {
-        type:String,
-        required: false
-    },
-    courses: {
-        type:[Number],
-        required: false
-    },
-    achievements: {
-        type: String,
-        required: false
-    },
-    studentUnderRPS: {
-        type: Number,
-        requiredPaths: false
-    },
-    officeAddress: {
-        type: String,
-        required: false
-    },
-    projects: {
-        type: [Project],
-        required: false
-    }
-});
-
+const UserProfile = mongooose.model('UESRPROFILE',UserProfileSchema);
 const LoginCredential = mongooose.model('LOGINCREDENTIAL',logincredentialSchema);
-const Student = mongoose.model("STUDENT",StudentProfile);
-const Faculty = mongoose.model("FACULTY",FacultyProfile);
-module.exports = { LoginCredential, Student, Faculty };
+module.exports = {LoginCredential,UserProfile};
