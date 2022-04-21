@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/Sofware-Engineering-Project/DA-FacTory#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "mongodb": "^4.4.1",
-    "mongoose": "^6.2.9"
+    "mongoose": "^6.2.9",
+    "nodemon": "^2.0.15",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
   }
 }
