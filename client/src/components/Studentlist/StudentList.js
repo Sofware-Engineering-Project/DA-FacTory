@@ -1,8 +1,8 @@
 import React from "react";
-import Grid from "./Grid";
-import NoImage from "./images/default.jpg";
+import Grid from "../Grid/Grid";
+import NoImage from "../images/default.jpg";
 //import { useFacultyProfileFetch } from "./hooks/useFacultyProfileFetch";
-import Student from "./Student";
+import Student from "../Student/Student";
 import { useState, useEffect } from "react";
 
 const initialState = [{

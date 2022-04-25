@@ -82,8 +82,9 @@ router.post("/login", (req, res) => {
       console.log(user,req.body);
       if(password==user.password && profession==user.profession)
       {
-        res.send({message:"Login Successfull",user: user});
-        //res.redirect("http://localhost:3000/DA-Factory");
+          window.location.href="http://localhost:3000/DA-FAcTory";
+          res.send({message:"Login Successfull",user: user});
+        
       }
       else{
         res.send({message: "Invalid credentials"});

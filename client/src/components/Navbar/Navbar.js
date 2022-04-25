@@ -3,9 +3,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 //import { useUser } from "./hooks/useUser";
 // image
-import logo from "./images/smallLogo.png";
+import logo from "../images/smallLogo.png";
+import Avtar from "../images/default.jpg"
 // Styles
 import "./Navbar.css";
+
 
 const Navbar = () => {
   //const { changeState } = useUser();
@@ -62,13 +64,20 @@ const Navbar = () => {
               Login | Register
             </button>
           </Link>
-          {/*<Link to="/auth" onClick={() => changeState(true)}>
-              <button type="button" className="btn btn-primary me-3">
-                Register
-              </button>
-  </Link>*/}
+         
         </div>
+        <a className="navbar-brand me-2" href="/Profile">
+          <img
+            src={Avtar}
+            height="60"
+            width="65"
+            alt="Logo"
+            loading="lazy"
+            style={{ marginTop: "-1px" }}
+          />
+        </a>
       </div>
+      
     </nav>
   );
 };

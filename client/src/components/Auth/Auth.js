@@ -1,9 +1,9 @@
 import React from "react";
-import backgrd from "./images/student.jpg";
-import "./Auth.css";
-import SignUp from "./SignUp";
-import SignIn from "./SignIn";
-import Home from "./Home";
+import backgrd from "../images/student.jpg";
+import "../Auth/Auth.css";
+import SignUp from "../Signup/SignUp";
+import SignIn from "../Signin/SignIn";
+import Home from "../Home/Home";
 import { useState } from "react";
 
 const Auth = () => {
