@@ -4,12 +4,14 @@ import "../Auth/Auth.css";
 import SignUp from "../Signup/SignUp";
 import SignIn from "../Signin/SignIn";
 import Home from "../Home/Home";
-import { useState } from "react";
+import { useState,useContext } from "react";
+import { LogincredentialProvide } from "../../Contexts/Logincontext";
+import PropTypes from 'prop-types';
+
 
 const Auth = () => {
   const [NewUser, setNewUser] = useState(false);
-  const [LoggedIn, setLoggedIn] = useState(false);
-
+  const [LoggedIn,setLoggedIn]=useContext(LogincredentialProvide);
   if (LoggedIn) return <Home />;
   else {
     return (
@@ -55,7 +57,7 @@ const Auth = () => {
                       </li>
                     </ul>
                     <div className="d-flex justify-content-center">
-                      {NewUser ? <SignUp /> : <SignIn />}
+                      {NewUser ? <SignUp /> : <SignIn LoggedIn = {LoggedIn} />}
                     </div>
                   </div>
                 </div>
@@ -67,5 +69,7 @@ const Auth = () => {
     );
   }
 };
+
+
 
 export default Auth;

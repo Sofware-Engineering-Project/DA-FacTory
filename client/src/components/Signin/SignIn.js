@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import axios from "axios";
+import PropTypes from 'prop-types';
+import { LogincredentialProvide } from "../../Contexts/Logincontext";
 
 const SignIn = () => {
 
@@ -9,7 +11,7 @@ const SignIn = () => {
     password: "",
     profession: "",
   });
-
+  const [LoggedIn,setLoggedIn]=useContext(LogincredentialProvide);
   const handleChange = e => {
     const { name, value } = e.target;
     setUser({
@@ -20,7 +22,12 @@ const SignIn = () => {
   };
 
   const login = () => {
-    axios.post("http://localhost:5000/DA-Factory/login",User).then(res => alert(res.data.message));
+    axios.post("http://localhost:5000/DA-Factory/login",User).then(res => {alert(res.data.message);
+    console.log(res.data.message);
+   
+    console.log("login: ",LoggedIn);
+    
+  }).catch(e => console.log(e));
   }
 
   return (
@@ -110,5 +117,7 @@ const SignIn = () => {
     </div>
   );
 };
+
+
 
 export default SignIn;

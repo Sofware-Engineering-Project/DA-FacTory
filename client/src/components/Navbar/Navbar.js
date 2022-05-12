@@ -7,11 +7,15 @@ import logo from "../images/smallLogo.png";
 import Avtar from "../images/default.jpg"
 // Styles
 import "./Navbar.css";
-
+import PropTypes from 'prop-types';
+import { useState,useContext } from "react";
+import { LogincredentialProvide } from "../../Contexts/Logincontext";
 
 const Navbar = () => {
   //const { changeState } = useUser();
-
+  console.log(LogincredentialProvide)
+  const [LoggedIn,setLoggedIn]=useContext(LogincredentialProvide);
+  console.log(LoggedIn)
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -57,15 +61,16 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-
         <div className="d-flex align-items-center">
           <Link to="/auth">
             <button type="button" className="btn btn-primary px-3 me-2">
-              Login | Register
+            { LoggedIn ? "Logout" : "Login | Register" }
             </button>
           </Link>
          
         </div>
+
+        { LoggedIn ?
         <a className="navbar-brand me-2" href="/Profile">
           <img
             src={Avtar}
@@ -75,11 +80,12 @@ const Navbar = () => {
             loading="lazy"
             style={{ marginTop: "-1px" }}
           />
-        </a>
+        </a>:<></>}
       </div>
       
     </nav>
   );
 };
+
 
 export default Navbar;

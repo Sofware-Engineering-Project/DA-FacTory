@@ -77,12 +77,12 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", (req, res) => {
   const { email, password, profession } = req.body;
+  console.log(req);
   User.LoginCredential.findOne({email:email},(err,user) => {
     if(user){
       console.log(user,req.body);
       if(password==user.password && profession==user.profession)
       {
-          window.location.href="http://localhost:3000/DA-FAcTory";
           res.send({message:"Login Successfull",user: user});
         
       }
