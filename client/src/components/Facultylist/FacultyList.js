@@ -27,13 +27,13 @@ const FacultyList = () => {
       (async () => {
         const profiles = await (
           await fetch("http://localhost:5000/DA-Factory/fetchFaculty")
-        ).json();
+          ).json();
         //console.log(profiles);
         setState(profiles);
       })();
       //setState(initialState);
       //fetchProfiles();
-    }, [state]);
+    }, []);
   //console.log(state);
 
   //if (error) return <div>Something went wrong...</div>;

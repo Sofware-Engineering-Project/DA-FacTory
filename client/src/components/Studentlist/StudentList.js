@@ -16,7 +16,7 @@ const initialState = [{
   projects: [],
 }];
 
-const FacultyList = () => {
+const StudentList = () => {
   const [state, setState] = useState(initialState);
  
     useEffect(() => {
@@ -48,4 +48,4 @@ const FacultyList = () => {
   );
 };
 
-export default FacultyList;
+export default StudentList;

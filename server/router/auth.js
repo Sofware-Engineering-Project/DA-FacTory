@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const User = require("../models/User")
+const { Faculty } = require("../models/Faculty")
+const { Student } = require("../models/Student")
+
+
 router.use(express.urlencoded({extended: true}));
 router.use(express.json())
+
 
 router.post("/register", async (req, res) => {
   console.log(req.body);
@@ -26,7 +31,7 @@ router.post("/register", async (req, res) => {
           console.log("Successfully Registered...");
           if (profession == "Student") {
             const { firstname, middlename, lastname, gender, contact } = req.body;
-            const student = new User.Student({
+            const student = new Student({
               user: {
                 email,
                 firstname,
@@ -48,7 +53,7 @@ router.post("/register", async (req, res) => {
             });
           } else {
             const { firstname, middlename, lastname, gender, contact } = req.body;
-            const faculty = new User.Faculty({
+            const faculty = new Faculty({
               user: {
                 email,
                 firstname,
@@ -96,18 +101,18 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/fetchFaculty", (req,res) => {
-  User.Faculty.find({},(err,faculties) => {
+  Faculty.find({},(err,faculties) => {
     if(faculties){
       res.send(faculties);
     }else{
       console.log("Error occured while fetching faculty profiles from database...");
-      res.send({error:1});
+      res.send({message:"Error"});
     }
   });;
 });
 
 router.get("/fetchStudent", (req,res) => {
-  User.Student.find({},(err,students) => {
+  Student.find({},(err,students) => {
     if(students){
       res.send(students);
     }else{
@@ -116,5 +121,6 @@ router.get("/fetchStudent", (req,res) => {
     }
   });;
 });
+
 
 module.exports = router;
