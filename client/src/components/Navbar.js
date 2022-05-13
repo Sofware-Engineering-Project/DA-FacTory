@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 //import { useUser } from "./hooks/useUser";
 // image
 import logo from "./images/smallLogo.png";
+import Avtar from "./images/default.jpg";
 // Styles
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ LoggedIn, setLoggedIn }) => {
   //const { changeState } = useUser();
 
   return (
@@ -61,17 +62,38 @@ const Navbar = () => {
           </ul>
         </div>
 
+        { LoggedIn ?
+          <a className="navbar-brand me-2" href="/Profile">
+            <img
+              src={Avtar}
+              height="60"
+              width="65"
+              alt="Logo"
+              loading="lazy"
+              style={{ marginTop: "-1px" }}
+            />
+          </a>:<div></div>
+        }
+
+
         <div className="d-flex align-items-center">
-          <Link to="/auth">
-            <button type="button" className="btn btn-primary px-3 me-2">
-              Login | Register
-            </button>
-          </Link>
-          {/*<Link to="/auth" onClick={() => changeState(true)}>
-              <button type="button" className="btn btn-primary me-3">
-                Register
+          {LoggedIn ? (
+            <Link to="/">
+              <button
+                type="button"
+                onClick={() => setLoggedIn(false)}
+                className="btn btn-primary px-3 me-2"
+              >
+                Logout
               </button>
-  </Link>*/}
+            </Link>
+          ) : (
+            <Link to="/auth">
+              <button type="button" className="btn btn-primary px-3 me-2">
+                Login | Register
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>

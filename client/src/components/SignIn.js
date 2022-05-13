@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-const SignIn = () => {
+const SignIn = ({LoggedIn,setLoggedIn}) => {
 
   const [User, setUser] = useState({
     email: "",
@@ -20,8 +20,13 @@ const SignIn = () => {
   };
 
   const login = () => {
-    axios.post("http://localhost:5000/DA-Factory/login",User).then(res => alert(res.data.message));
-  }
+    axios.post("http://localhost:5000/DA-Factory/login",User).then(res => {
+      alert(res.data.message);
+      if(res.data.message==="Login Successfull")
+        setLoggedIn(true);
+      console.log(LoggedIn);
+  });
+}
 
   return (
     <div className="col-xl-10">

@@ -6,14 +6,16 @@ import Navbar from "./components/Navbar";
 import StudentList from "./components/StudentList";
 import FacultyList from "./components/FacultyList";
 import ProjectList from "./components/ProjectList";
+import { useState } from "react";
 
 function App() {
+  const [LoggedIn, setLoggedIn] = useState(false);
   return (
     <Router>
-      <Navbar />
+      <Navbar LoggedIn={LoggedIn} setLoggedIn={setLoggedIn}/>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/auth" element={<Auth />} />
+        <Route exact path="/auth" element={<Auth LoggedIn={LoggedIn} setLoggedIn={setLoggedIn}/>} />
         <Route exact path="/student" element={<StudentList />} />
         <Route exact path="/faculty" element={<FacultyList />} />
         <Route exact path="/projects" element={<ProjectList />} />

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./Project.css";
 
 const Project = ({title, faculty, tags, status, description, require_of_student, criteria}) => {
+    //console.log(tags);
     return (
         <div className="container mt-5 mb-5 d-flex">
     <div className="card p-3 w-100">
@@ -13,7 +14,11 @@ const Project = ({title, faculty, tags, status, description, require_of_student,
                 {/* <span className="text-info">{email}</span> */}
                 <div className="p-2 mt-2 bg-primary d-flex flex-column justify-content-between rounded text-white stats">
                     <div className="d-flex flex-column"> <span className="rating">Description</span> <span className="number3 d-flex justify-content-center">{description}</span> </div>
-                    <div className="d-flex flex-column"> <span className="articles">Tags</span> <span className="number1 d-flex justify-content-center">{tags}</span> </div>
+                    <div className="d-flex flex-column"> <span className="articles">Tags</span> <span className="number1 d-flex justify-content-center">{
+                        tags.map(tag => (
+                            <p key={tag}>#{tag}&nbsp;</p>
+                        ))
+                    } </span> </div>
                     <div className="d-flex flex-column"> <span className="rating">Faculty</span> <span className="number3 d-flex justify-content-center">{faculty}</span> </div>
                     <div className="d-flex flex-column"> <span className="followers">Project Status</span> <span className="number2 d-flex justify-content-center">{status}</span> </div>
                     <div className="d-flex flex-column"> <span className="rating">criteria</span> <span className="number3 d-flex justify-content-center">{criteria}</span> </div>
