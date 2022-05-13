@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-const SignIn = ({LoggedIn,setLoggedIn}) => {
+const SignIn = () => {
 
   const [User, setUser] = useState({
     email: "",
@@ -22,9 +22,12 @@ const SignIn = ({LoggedIn,setLoggedIn}) => {
   const login = () => {
     axios.post("http://localhost:5000/DA-Factory/login",User).then(res => {
       alert(res.data.message);
-      if(res.data.message==="Login Successfull")
-        setLoggedIn(true);
-      console.log(LoggedIn);
+      if(res.data.message==="Login Successfull"){
+        localStorage.setItem('LoggedIn',JSON.stringify(true));//setLoggedIn(true);
+        window.location.href = "http://localhost:3000";
+      }
+      console.log("SignIn: ",JSON.parse(localStorage.getItem('LoggedIn')));
+      //window.history.href("http://localhost:3000");
   });
 }
 

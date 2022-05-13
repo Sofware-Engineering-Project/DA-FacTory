@@ -31,7 +31,7 @@ const Home = () => {
                 {/* <div className = "d-flex"> */}
                     <div className="col-lg-4 col-md-6">
                         <h5 className="h1 text-dark">DA-FacTory</h5>
-                        <p className="small text-dark mb-0">Copyrights &copy; 2022. All rights reserved. <a className="text-primary" href="#">DAFacTory.com</a></p>
+                        <p className="small text-dark mb-0">Copyrights &copy; 2022. All rights reserved. <a className="text-primary" href="/">DAFacTory.com</a></p>
                         <div className='container p-0 pb-0'>
                             <section className='mb-4'>
                             <a

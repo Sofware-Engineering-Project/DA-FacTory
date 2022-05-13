@@ -13,7 +13,7 @@ const initialState = [{
     faculty_id:"",
 }];
 
-const ProjectList = () => {
+const ProjectList = (LoggedIn,setLoggedIn) => {
   const [state, setState] = useState(initialState);
   //const [error, setError] = useState(false);
 
@@ -37,7 +37,8 @@ const ProjectList = () => {
   return (
     <Grid>
       {state.map((_Project) => (
-        <Project
+        <Project 
+          LoggedIn={LoggedIn} 
           title={_Project.project_title}
           faculty={_Project.faculty_id}
           tags={_Project.topic_tags}
@@ -45,7 +46,7 @@ const ProjectList = () => {
           require_of_student={_Project.require_of_student}
           description={_Project.description}
           criteria={_Project.criteria}
-
+          
         />
       ))}
     </Grid>

@@ -6,19 +6,24 @@ import Navbar from "./components/Navbar";
 import StudentList from "./components/StudentList";
 import FacultyList from "./components/FacultyList";
 import ProjectList from "./components/ProjectList";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 function App() {
   const [LoggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setLoggedIn(JSON.parse(localStorage.getItem("LoggedIn")));
+  },[]);
+
   return (
     <Router>
       <Navbar LoggedIn={LoggedIn} setLoggedIn={setLoggedIn}/>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/auth" element={<Auth LoggedIn={LoggedIn} setLoggedIn={setLoggedIn}/>} />
+        <Route exact path="/auth" element={<Auth />} />
         <Route exact path="/student" element={<StudentList />} />
         <Route exact path="/faculty" element={<FacultyList />} />
-        <Route exact path="/projects" element={<ProjectList />} />
+        <Route exact path="/projects" element={<ProjectList LoggedIn={LoggedIn} setLoggedIn={setLoggedIn}/>} />
       </Routes>
     </Router>
   );

@@ -6,8 +6,9 @@ import SignIn from "./SignIn";
 import Home from "./Home";
 import { useState } from "react";
 
-const Auth = ({LoggedIn, setLoggedIn}) => {
+const Auth = () => {
   const [NewUser, setNewUser] = useState(false);
+  const LoggedIn = JSON.parse(localStorage.getItem("LoggedIn")); 
 
   if (LoggedIn) return <Home />;
   else {
@@ -54,7 +55,7 @@ const Auth = ({LoggedIn, setLoggedIn}) => {
                       </li>
                     </ul>
                     <div className="d-flex justify-content-center">
-                      {NewUser ? <SignUp /> : <SignIn LoggedIn={LoggedIn} setLoggedIn={setLoggedIn}/>}
+                      {NewUser ? <SignUp /> : <SignIn />}
                     </div>
                   </div>
                 </div>

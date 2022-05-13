@@ -8,8 +8,19 @@ import Avtar from "./images/default.jpg";
 // Styles
 import "./Navbar.css";
 
-const Navbar = ({ LoggedIn, setLoggedIn }) => {
+const Navbar = ({LoggedIn,setLoggedIn}) => {
   //const { changeState } = useUser();
+  console.log("Navbar: ",JSON.parse(localStorage.getItem('LoggedIn')));
+  console.log(LoggedIn);
+
+  const Logout = () => {
+  
+   setLoggedIn(false)
+   localStorage.setItem("LoggedIn",JSON.stringify(false));
+  //  localStorage.clear();
+    console.log("Logout");
+    window.location.href = "http://localhost:3000/";
+  };
 
   return (
     <nav className="navbar d-flex navbar-expand-lg navbar-light bg-light">
@@ -81,7 +92,7 @@ const Navbar = ({ LoggedIn, setLoggedIn }) => {
             <Link to="/">
               <button
                 type="button"
-                onClick={() => setLoggedIn(false)}
+                onClick={Logout}
                 className="btn btn-primary px-3 me-2"
               >
                 Logout
