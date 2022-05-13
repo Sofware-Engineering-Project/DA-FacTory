@@ -1,9 +1,8 @@
-const { default: mongoose } = require('mongoose');
-const mongooose = require('mongoose');
-const User = require('./User');
+const mongoose = require('mongoose');
+const { UserProfileSchema } = require('./User');
 
 const FacultyProfile = new mongoose.Schema({
-    userdetails: User.UserProfile,
+    userdetails: UserProfileSchema,
     yearOfJoining: {
         type:Number,
         required: false

@@ -59,4 +59,4 @@ const UserProfileSchema = new mongooose.Schema({
 
 const UserProfile = mongooose.model('UESRPROFILE',UserProfileSchema);
 const LoginCredential = mongooose.model('LOGINCREDENTIAL',logincredentialSchema);
-module.exports = {LoginCredential,UserProfile};
+module.exports = {LoginCredential,UserProfile,UserProfileSchema};

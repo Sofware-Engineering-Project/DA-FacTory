@@ -1,9 +1,9 @@
 const { default: mongoose } = require('mongoose');
 const mongooose = require('mongoose');
-const User = require('./User')
+const { UserProfileSchema } = require('./User');
 
 const StudentProfile = new mongoose.Schema({
-    userdetails: User.UserProfile,
+    userdetails: UserProfileSchema,
     batch: {
         type:Number,
         required: false
