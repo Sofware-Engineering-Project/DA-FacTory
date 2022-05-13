@@ -13,16 +13,20 @@ const Project = ({title, faculty, tags, status, description, require_of_student,
                 <h4 className="mb-0 mt-0">{title}</h4> 
                 {/* <span className="text-info">{email}</span> */}
                 <div className="p-2 mt-2 bg-primary d-flex flex-column justify-content-between rounded text-white stats">
-                    <div className="d-flex flex-column"> <span className="rating">Description</span> <span className="number3 d-flex justify-content-center">{description}</span> </div>
-                    <div className="d-flex flex-column"> <span className="articles">Tags</span> <span className="number1 d-flex justify-content-center">{
+                    <div className="d-flex flex-row  align-items-baseline"> <span className="rating">Description</span> <span className="number3 d-flex justify-content-center">{description}</span> </div>
+                   
+                    <div className="d-flex flex-row align-items-baseline"> <span className="rating">Tags</span> <span className="number3 d-flex justify-content-center">{
                         tags.map(tag => (
-                            <p key={tag}>#{tag}&nbsp;</p>
+                            <span key={tag}>{tag},&nbsp;</span>
                         ))
                     } </span> </div>
-                    <div className="d-flex flex-column"> <span className="rating">Faculty</span> <span className="number3 d-flex justify-content-center">{faculty}</span> </div>
-                    <div className="d-flex flex-column"> <span className="followers">Project Status</span> <span className="number2 d-flex justify-content-center">{status}</span> </div>
-                    <div className="d-flex flex-column"> <span className="rating">criteria</span> <span className="number3 d-flex justify-content-center">{criteria}</span> </div>
-                    <div className="d-flex flex-column"> <span className="rating">required no. of students</span> <span className="number3 d-flex justify-content-center">{require_of_student}</span> </div>
+                    <div className="d-flex flex-row align-items-baseline"> <span className="rating">Faculty</span> <span className="number3 d-flex justify-content-center">{faculty}</span> </div>
+
+                    <div className="d-flex flex-row align-items-baseline"> <span className="rating">Project Status</span> <span className="number3 d-flex justify-content-center">{status}</span> </div>
+
+                    <div className="d-flex flex-row align-items-baseline"> <span className="rating">criteria</span> <span className="number3 d-flex justify-content-center">{criteria}</span> </div>
+                   
+                    <div className="d-flex flex-row align-items-baseline"> <span className="rating">required no. of students</span> <span className="number3 d-flex justify-content-center">{require_of_student}</span> </div>
                     
                 </div>
                 <div className="p-2 mt-2 bg-primary d-flex justify-content-around rounded text-white stats">
