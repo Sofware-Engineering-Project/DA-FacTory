@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import StudentList from "./components/StudentList";
 import FacultyList from "./components/FacultyList";
+import ProjectList from "./components/ProjectList";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/auth" element={<Auth />} />
         <Route exact path="/student" element={<StudentList />} />
         <Route exact path="/faculty" element={<FacultyList />} />
+        <Route exact path="/projects" element={<ProjectList />} />
       </Routes>
     </Router>
   );

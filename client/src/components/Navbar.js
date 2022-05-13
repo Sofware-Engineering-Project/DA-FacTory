@@ -11,9 +11,9 @@ const Navbar = () => {
   //const { changeState } = useUser();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar d-flex navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a className="navbar-brand me-2" href="/">
+        <a className="navbar-brand me-1" href="/">
           <img
             src={logo}
             height="60"
@@ -37,7 +37,7 @@ const Navbar = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarText">
-          <ul className="navbar-nav mb-2 mb-lg-0 w-100">
+          <ul className="navbar-nav mt-2 mt-lg-0 d-flex ">
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">
                 Home
@@ -51,6 +51,11 @@ const Navbar = () => {
             <li className="nav-item">
               <a className="nav-link" href="/faculty">
                 Faculty
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/projects">
+                Projects
               </a>
             </li>
           </ul>
