@@ -4,16 +4,28 @@ import { Link } from "react-router-dom";
 //import { useUser } from "./hooks/useUser";
 // image
 import logo from "./images/smallLogo.png";
+import Avtar from "./images/default.jpg";
 // Styles
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({LoggedIn,setLoggedIn}) => {
   //const { changeState } = useUser();
+  console.log("Navbar: ",JSON.parse(localStorage.getItem('LoggedIn')));
+  console.log(LoggedIn);
+
+  const Logout = () => {
+  
+   setLoggedIn(false)
+   localStorage.setItem("LoggedIn",JSON.stringify(false));
+  //  localStorage.clear();
+    console.log("Logout");
+    window.location.href = "http://localhost:3000/";
+  };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar d-flex navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a className="navbar-brand me-2" href="/">
+        <a className="navbar-brand me-1" href="/">
           <img
             src={logo}
             height="60"
@@ -37,7 +49,7 @@ const Navbar = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarText">
-          <ul className="navbar-nav mb-2 mb-lg-0 w-100">
+          <ul className="navbar-nav mt-2 mt-lg-0 d-flex ">
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">
                 Home
@@ -53,20 +65,46 @@ const Navbar = () => {
                 Faculty
               </a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/projects">
+                Projects
+              </a>
+            </li>
           </ul>
         </div>
 
+        { LoggedIn ?
+          <a className="navbar-brand me-2" href="/Profile">
+            <img
+              src={Avtar}
+              height="60"
+              width="65"
+              alt="Logo"
+              loading="lazy"
+              style={{ marginTop: "-1px" }}
+            />
+          </a>:<div></div>
+        }
+
+
         <div className="d-flex align-items-center">
-          <Link to="/auth">
-            <button type="button" className="btn btn-primary px-3 me-2">
-              Login | Register
-            </button>
-          </Link>
-          {/*<Link to="/auth" onClick={() => changeState(true)}>
-              <button type="button" className="btn btn-primary me-3">
-                Register
+          {LoggedIn ? (
+            <Link to="/">
+              <button
+                type="button"
+                onClick={Logout}
+                className="btn btn-primary px-3 me-2"
+              >
+                Logout
               </button>
-  </Link>*/}
+            </Link>
+          ) : (
+            <Link to="/auth">
+              <button type="button" className="btn btn-primary px-3 me-2">
+                Login | Register
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>

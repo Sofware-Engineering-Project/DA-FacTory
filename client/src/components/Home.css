@@ -1,0 +1,70 @@
+/* ==========================================
+    FOR DEMO PURPOSE
+  ========================================== */
+  body {
+    background: #657382;
+  }
+  
+  .text-small {
+    font-size: 0.9rem;
+  }
+
+  .home-page-cover{
+      background-image: url(./images/home_bg.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 1;
+      height: 60vh;
+
+      
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .cover-txt{
+      padding-top: 10rem;
+  }
+  .col-lg-6{
+      width: 60%;
+  }
+  
+  a:hover, a:focus {
+    text-decoration: none;
+  }
+
+  .p-0{
+    padding-left:0rem ;
+    padding-top: 1.5rem!important;
+    padding-right: 1.5rem;
+  }
+  
+  .Quick-link{
+    margin: 0px;
+  }
+  .form-control {
+    background: #ffffff;
+    border-color: #5c5151;
+  }
+  
+  .form-control:focus {
+    background: #ffffff;
+  }
+  
+  footer {
+      display: flex;
+    background: #f5f5fa;
+
+  }
+  
+  
+  /* ==========================================
+      CUSTOM UTILS CLASSES
+    ========================================== */
+    body, html {
+      height: 100%;
+    }

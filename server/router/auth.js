@@ -1,8 +1,37 @@
 const express = require('express');
 const router = express.Router();
 const User = require("../models/User")
+const FacultyResearchProject = require("../models/FacultyResearchProject")
 router.use(express.urlencoded({extended: true}));
 router.use(express.json())
+/*  title: "",
+    description:"",
+    req_no_student:0,
+    criteria:"",
+    faculty: "",
+    tags: [],  
+    project_status:"", */
+router.post("/addproject",async (req,res)=>{
+  
+   console.log(req.body);
+   const {project_title,description,require_of_student,topic_tags,criteria,project_status,faculty_id } = req.body;
+  
+   const _project = new FacultyResearchProject.Faculty_projects({
+    project_title,description,require_of_student,topic_tags,criteria,project_status,faculty_id 
+   });
+    await _project.save(async (err)=>{
+      if(err)
+      console.log(err);
+      else
+      {
+        res.send({success:true})
+        console.log("Project Created successfully");
+      }
+    })
+
+
+})
+
 
 router.post("/register", async (req, res) => {
   console.log(req.body);
@@ -83,7 +112,6 @@ router.post("/login", (req, res) => {
       if(password==user.password && profession==user.profession)
       {
         res.send({message:"Login Successfull",user: user});
-        //res.redirect("http://localhost:3000/DA-Factory");
       }
       else{
         res.send({message: "Invalid credentials"});
@@ -115,5 +143,21 @@ router.get("/fetchStudent", (req,res) => {
     }
   });;
 });
+
+
+router.get("/fetchProjects", (req,res) => {
+  FacultyResearchProject.Faculty_projects.find({},(err,projects) => {
+    
+    if(projects){
+     
+      res.send(projects);
+    }else{
+      console.log("Error occured while fetching projects from database...");
+      res.send({error:1});
+    }
+  });;
+});
+
+
 
 module.exports = router;

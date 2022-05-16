@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const Auth = () => {
   const [NewUser, setNewUser] = useState(false);
-  const [LoggedIn, setLoggedIn] = useState(false);
+  const LoggedIn = JSON.parse(localStorage.getItem("LoggedIn")); 
 
   if (LoggedIn) return <Home />;
   else {

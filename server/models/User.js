@@ -1,7 +1,6 @@
-const { default: mongoose } = require('mongoose');
-const mongooose = require('mongoose');
+const  mongoose  = require('mongoose');
 
-const logincredentialSchema = new mongooose.Schema({
+const logincredentialSchema = new mongoose.Schema({
     email: {
         type: String,
         lowercase: true,
@@ -20,7 +19,7 @@ const logincredentialSchema = new mongooose.Schema({
       }
 })
 
-const UserProfileSchema = new mongooose.Schema({
+const UserProfileSchema = new mongoose.Schema({
     email: {
         type: String,
         lowercase: true,
@@ -62,7 +61,7 @@ const UserProfileSchema = new mongooose.Schema({
     }
 })
 
-const Project = new mongooose.Schema({
+const Project = new mongoose.Schema({
     project_details:{
         type: String,
         required:false
@@ -129,7 +128,7 @@ const FacultyProfile = new mongoose.Schema({
     }
 });
 
-const LoginCredential = mongooose.model('LOGINCREDENTIAL',logincredentialSchema);
+const LoginCredential = mongoose.model('LOGINCREDENTIAL',logincredentialSchema);
 const Student = mongoose.model("STUDENT",StudentProfile);
 const Faculty = mongoose.model("FACULTY",FacultyProfile);
 module.exports = { LoginCredential, Student, Faculty };

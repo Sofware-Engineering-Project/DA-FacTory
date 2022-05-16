@@ -20,8 +20,16 @@ const SignIn = () => {
   };
 
   const login = () => {
-    axios.post("http://localhost:5000/DA-Factory/login",User).then(res => alert(res.data.message));
-  }
+    axios.post("http://localhost:5000/DA-Factory/login",User).then(res => {
+      alert(res.data.message);
+      if(res.data.message==="Login Successfull"){
+        localStorage.setItem('LoggedIn',JSON.stringify(true));//setLoggedIn(true);
+        window.location.href = "http://localhost:3000";
+      }
+      console.log("SignIn: ",JSON.parse(localStorage.getItem('LoggedIn')));
+      //window.history.href("http://localhost:3000");
+  });
+}
 
   return (
     <div className="col-xl-10">
