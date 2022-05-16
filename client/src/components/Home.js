@@ -95,7 +95,7 @@ const Home = () => {
                     <h5 className="text-dark mb-3">Quick links</h5>
                     <ul className="list-unstyled text-dark">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/">About Us</a></li>
+                        <li><a href="/About">About Us</a></li>
                         <li><a href="/">Get started</a></li>
                         <li><a href="/">FAQ</a></li>
                     </ul>

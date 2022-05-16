@@ -39,9 +39,9 @@ const Project = ({LoggedIn,title, faculty, tags, status, description, require_of
 
                     <div className="d-flex flex-row align-items-baseline"> <span className="rating">Project Status</span> <span className="number3 d-flex justify-content-center">{status}</span> </div>
 
-                    <div className="d-flex flex-row align-items-baseline"> <span className="rating">criteria</span> <span className="number3 d-flex justify-content-center">{criteria}</span> </div>
+                    <div className="d-flex flex-row align-items-baseline"> <span className="rating">Criteria</span> <span className="number3 d-flex justify-content-center">{criteria}</span> </div>
                    
-                    <div className="d-flex flex-row align-items-baseline"> <span className="rating">required no. of students</span> <span className="number3 d-flex justify-content-center">{require_of_student}</span> </div>
+                    <div className="d-flex flex-row align-items-baseline"> <span className="rating">Required Students</span> <span className="number3 d-flex justify-content-center">{require_of_student}</span> </div>
                     
                 </div>
                
